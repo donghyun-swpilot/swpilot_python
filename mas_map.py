@@ -1,34 +1,38 @@
 import pandas as pd
 
-def pri():
 
+def print_csv_files():
     struct_category = pd.read_csv('area_category.csv')
     area_struct = pd.read_csv('area_struct.csv')
     area_map = pd.read_csv('area_map.csv')
 
+    print(struct_category)
+    print(area_struct)
+    print(area_map)
 
-    return print(struct_category, area_struct, area_map)
 
-def summ():
+def summarize_data():
     struct_category = pd.read_csv('area_category.csv')
     area_struct = pd.read_csv('area_struct.csv')
     area_map = pd.read_csv('area_map.csv')
-
 
     merged = pd.merge(area_struct, struct_category, on='category')
-    mergg = pd.merge(area_map, merged,on = ['x','y'])
-    mer1 = mergg.drop('category', axis=1)
+    merged_all = pd.merge(area_map, merged, on=['x', 'y'])
+    final_data = merged_all.drop('category', axis=1)
 
-    return print(mer1)
+    print(final_data)
 
-def cate():
+
+def filter_area_one():
     df = pd.read_csv('area_struct.csv')
-    are = df[df['area']== 1 ]
+    area_one = df[df['area'] == 1]
 
-    return print(are)
+    print(area_one)
 
-pri()
-summ()
-cate()
+
+
+print_csv_files()
+summarize_data()
+filter_area_one()
 
 
