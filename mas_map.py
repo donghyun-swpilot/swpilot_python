@@ -17,8 +17,9 @@ def summ():
 
     merged = pd.merge(area_struct, struct_category, on='category')
     mergg = pd.merge(area_map, merged,on = ['x','y'])
+    mer1 = mergg.drop('category', axis=1)
 
-    return print(mergg)
+    return print(mer1)
 
 def cate():
     df = pd.read_csv('area_struct.csv')
